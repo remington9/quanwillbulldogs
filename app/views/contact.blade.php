@@ -13,7 +13,7 @@
     <h1 class="canevalee centeredText">Make Deposits. Pay Online,</h1>
     <h1 class="canevalee centeredText"> It’s Easy and Secure With PayPal</h1>
     <div class="row">
-        <a href=""><img src="/img/paypal.jpg" class="col-md-4 col-md-offset-4" alt="paypal"></a>
+        <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=ArduiRomFLLrcAu3100DEQHmYJ0Vru8skZLF5qJz5l-Hv-y4GxTSSeQw0JG&dispatch=50a222a57771920b6a3d7b606239e4d529b525e0b7e69bf0224adecfb0124e9b61f737ba21b081984719ecfa9a8ffe80733a1a700ced90ae"><img src="/img/paypal.jpg" class="col-md-4 col-md-offset-4" alt="paypal"></a>
     </div>
     <hr>
     <div class="jumbotron">
