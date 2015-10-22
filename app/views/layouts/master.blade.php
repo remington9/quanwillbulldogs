@@ -25,11 +25,8 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
              </button>
-             <a class="navbar-brand visible-lg" href="#">
+             <a class="navbar-brand visible-lg visible-md visible-sm visible-xs" href="#">
                 <img id="logo" src="/img/bbLogo.png" alt="">
-            </a>
-            <a class="navbar-brand visible-xs visible-sm" href="#">
-                <img id="logoSm" src="/img/bbLogoSm.png" alt="">
             </a>
            </div>
 

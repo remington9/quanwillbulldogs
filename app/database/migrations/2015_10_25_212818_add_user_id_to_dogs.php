@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserIdToPosts extends Migration {
+class AddUserIdToDogs extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class AddUserIdToPosts extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('posts', function($table)
+		Schema::table('dogs', function($table)
 		{
 		    $table->integer('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
@@ -26,9 +26,9 @@ class AddUserIdToPosts extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('posts', function($table)
+		Schema::table('dogs', function($table)
 		{
-		    $table->dropForeign('posts_user_id_foreign');
+		    $table->dropForeign('dogs_user_id_foreign');
 		    $table->dropColumn('user_id');
 		});
 	}
