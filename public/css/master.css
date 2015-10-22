@@ -52,3 +52,12 @@ hr{
 .centeredText{
     text-align: center;
 }
+
+#callMe{
+    margin-bottom: 0px !important;
+    background: #432818;
+}
+
+.btn-default{
+    background: #FFE6A7;
+}

@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('title')
+<title>About</title>
 @stop
 @section('content')
     <div class="jumbotron">
@@ -18,7 +19,7 @@
         </p>
     </div>
     <hr>
-    <h2 class="canevalee centeredText">About Olde English Bulldogges</h2>
+    <h1 class="canevalee centeredText">About Olde English Bulldogges</h1>
     <p class="centeredText">
         Olde English Bulldogges are NOT the same as the AKC bulldogs. Olde English Bulldogges are for bulldog lovers who wish their bulldogs could do just a little more. The Olde English Bulldogge is a recreation of the bulldogge that originated in England between 1600 and 1700, that was used primarily in the sport of bull-baiting. For this purpose these dogs where built for functionality that contributed to the necessary physical stamina and endurance which allowed them to participate in such sports. 
     </p>
@@ -27,5 +28,42 @@
     </p>
     <hr>
     <div class="jumbotron">
+        <div class="row">
+            <img src="/img/aboutPage/compare.png" alt="" class="col-lg-4 col-md-8 col-sm-12 col-xs-12">
+            <p class="col-lg-4 col-md-8 col-sm-12 col-xs-12">
+                The picture on the left shows the transitions of the skull of the bulldog as breeders began to breed down Olde Bulldogges with pugs. Notice the shorter skull in 1935 compared to the skull of an 18th century bulldogge. This shorter skull is a direct reflection of some of health disorders that plague the modern AKC English Bulldog breed.
+            </p>
+            <img src="/img/aboutPage/compare2.jpg" alt="" class="col-lg-4 col-md-8 col-sm-12 col-xs-12">
+        </div>
     </div>
+    <hr>
+    <h1 class="canevalee centeredText">About Our Puppies</h1>
+    <p>
+        All puppies have been raised in our home by our family for your family.
+    </p>
+    <p>
+        All puppies will have all up to date vacinations and have been wormed prior to leaving us for their new homes.
+    </p>
+    <p>
+        All puppies will be ready for their new homes at 8 weeks of age with IOEBA registries
+    </p>
+    <p>
+        All puppies will have been properly socialized in a loving family environment, insuring that each pup will gorw to be a happy, healthy, and well adjusted adult.
+    </p>
+    <div class="jumbotron">
+        <h2 class="canevalee centeredText">Deposit</h2>
+        <p>
+            A $300.00 non-refundable deposit is required to hold the available puppy of choice. Deposits are not refundable for any reason. First deposits gets first pick after breeder picks.
+        </p>
+    </div>
+    <hr>
+    <h2 class="centeredText">
+        <a href="tel:+12105443004">210-544-3004</a>
+    </h2>
+    <h4 class="centeredText">
+        If our bullies are what you’re looking for or if you would like more information, please contact us with any questions at
+    </h4>
+    <h2 class="centeredText">
+        <a href="tel:+12105443004">210-544-3004</a>
+    </h2>
 @stop

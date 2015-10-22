@@ -31,14 +31,14 @@
            <!-- Collect the nav links, forms, and other content for toggling -->
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
              <ul class="nav navbar-nav">
-               <li class="active"><a href="#">Home</a></li>
-               <li><a href="#">About</a></li>
-               <li><a href="#">Contact</a></li>
-               <li><a href="#">Males</a></li>
-               <li><a href="#">Females</a></li>
-               <li><a href="#">Upcoming Breeding</a></li>
-               <li><a href="#">Available Puppies</a></li>
-               <li><a href="#">Past Litters</a></li>
+               <li {{ Request::is('home')? 'class="active"': '' }}><a href="/">Home</a></li>
+               <li {{ Request::is('about')? 'class="active"': '' }}><a href="/about">About</a></li>
+               <li {{ Request::is('contact')? 'class="active"': '' }}><a href="/contact">Contact</a></li>
+               <li {{ Request::is('males')? 'class="active"': '' }}><a href="#">Males</a></li>
+               <li {{ Request::is('female')? 'class="active"': '' }}><a href="#">Females</a></li>
+               <li {{ Request::is('upcomingBreeding')? 'class="active"': '' }}><a href="#">Upcoming Breeding</a></li>
+               <li {{ Request::is('availablePuppies')? 'class="active"': '' }}><a href="#">Available Puppies</a></li>
+               <li {{ Request::is('pastLitters')? 'class="active"': '' }}><a href="#">Past Litters</a></li>
              </ul>
            </div><!-- /.navbar-collapse -->
         </div>
@@ -62,6 +62,10 @@
                 </ul>
             </div>
         @endif
+        <!-- Visible only on small devices -->
+          <div class="well well-small visible-sm visible-xs visible-md" Id="callMe">
+            <a href="tel:210-544-3004" class="btn btn-large btn-block btn-default"><span class="glyphicon glyphicon-phone"></span> Give us a call!</a>
+          </div><!-- end well-small call me -->
         @yield('error')
         @yield('content')
     </div>
@@ -70,7 +74,7 @@
     <div class="container">
       <hr>
       <p class="col-lg-5 col-md-6 col-xs-12">Bullnanza Bulldogges P.O. Box 331 Bulverde, Texas 78163</p>
-      <p class="col-lg-3 col-md-2 col-xs-12"><a href="tel:+1800229933">210-544-3004</a></p>
+      <p class="col-lg-3 col-md-2 col-xs-12"><a href="tel:+12105443004">210-544-3004</a></p>
       <p class="col-lg-4 col-md-4 col-xs-12">© Copyright 2009 Bullnanza Bulldogges</p>
     </div>
 </footer>
