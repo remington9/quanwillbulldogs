@@ -1,3 +1,50 @@
+@font-face { font-family: Carnevalee; font-weight: bold; src: url('/img/fonts/carnevaleeFreakshow.ttf');}
 body{
     background-image: url(/img/background1.jpg);
+}
+
+hr{
+    background-color: #432818;
+    border-color:  #432818;
+    color: #432818;
+    height: 1px;
+}
+
+.container{
+    background-color: #FFE6A7;
+}
+
+.jumbotron{
+    background-color: #D4AA7D;
+    text-align: center;
+}
+.canevalee{
+    font-family: Carnevalee, Serif;
+}
+
+@media (min-width: 768px){
+    .navbar-nav{
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+        float:none;
+    }
+} 
+
+#logo{
+    max-width:200px;
+    margin-top: -7px;
+}
+
+.navbar-brand{
+    padding-right: 0px;
+
+}
+#logoSm{
+    max-height:50px;
+    margin-top: -10px;
+}
+
+#banner{
+    width: 100%;
 }

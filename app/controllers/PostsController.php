@@ -63,7 +63,6 @@ class PostsController extends BaseController {
 	 */
 	public function store()
 	{
-		// var_dump(Input::get());
 
 	    // create the validator
 	    $validator = Validator::make(Input::all(), Post::$rules);
@@ -78,7 +77,7 @@ class PostsController extends BaseController {
 
 			$post = new Post();
 		    $post->title = Input::get('title');
-		    $post->coment = Input::get('coment');
+		    $post->body = Input::get('body');
 		    $post->user_id = Auth::id();
 		    $post->save();
 	    	Session::flash('successMessage', 'Your post was created successfully');
