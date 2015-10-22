@@ -15,6 +15,10 @@ Route::get('/', function()
 {
 	return View::make('welcome');
 });
+Route::get('about', function()
+{
+    return View::make('about');
+});
 
 Route::resource('posts', 'PostsController');
 

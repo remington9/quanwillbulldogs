@@ -25,9 +25,7 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
              </button>
-             <a class="navbar-brand visible-lg visible-md visible-sm visible-xs" href="#">
-                <img id="logo" src="/img/bbLogo.png" alt="">
-            </a>
+
            </div>
 
            <!-- Collect the nav links, forms, and other content for toggling -->

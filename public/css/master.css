@@ -1,6 +1,6 @@
 @font-face { font-family: Carnevalee; font-weight: bold; src: url('/img/fonts/carnevaleeFreakshow.ttf');}
 body{
-    background-image: url(/img/background2.jpg);
+    background-image: url(/img/px2.jpg);
 }
 
 hr{
@@ -47,4 +47,8 @@ hr{
 
 #banner{
     width: 100%;
+}
+
+.centeredText{
+    text-align: center;
 }

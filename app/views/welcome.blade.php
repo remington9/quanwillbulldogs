@@ -5,7 +5,7 @@
 @section('content')
     <div class="jumbotron">
         <h1 class="canevalee">“Welcome to Bullnanza Bulldogges”</h1>
-        <h2 class="canevalee" style="text-align:center;">Not Your Typical Bulldogges!</h2>
+        <h2 class="canevalee centered">Not Your Typical Bulldogges!</h2>
         <hr>
         <p>
             We are located near the beautiful river city of San Antonio, Texas, deep in the heart of the Texas Hill Country. All of our Olde English Bulldogges are dual registered with the IOEBA and the UCA.
