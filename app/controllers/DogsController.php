@@ -16,7 +16,7 @@ class DogsController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('welcome');
 	}
 
 
@@ -49,13 +49,22 @@ class DogsController extends BaseController {
 		        return Redirect::back()->withInput()->withErrors($validator);
 		    } else {
 
+		    	$file = Input::file('img_url');
+		    	$destinationPath = public_path() . '/img/dogs';
+		    	$filename = $file->getClientOriginalName();
+		    	Input::file('img_url')->move($destinationPath, $filename);
+
 				$dog = new Dog();
 			    $dog->name = Input::get('name');
-			    $dog->img_url = Input::get('img_url');
+			    $dog->comment = Input::get('comment');
+			    $dog->gender = Input::get('gender');
+			    $dog->banner = Input::get('banner');
+			    $dog->retired = Input::get('retired');
+			    $dog->img_url = $filename;
 			    $dog->user_id = Auth::id();
 			    $dog->save();
 		    	Session::flash('successMessage', 'Your dog was saved successfully');
-			    return Redirect::action('DogsController@index');
+			    return Redirect::action('DogsController@create');
 			}
 	}
 

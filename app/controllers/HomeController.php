@@ -23,9 +23,9 @@ class HomeController extends BaseController {
 	public function showLogin()
 	{
 		if(Auth::check()){
-			return Redirect::action('PostsController@index');
+			return Redirect::action('DogsController@index');
 		}else{
-			return View::make('posts.login');
+			return View::make('dogs.login');
 		}
 	}
 	public function doLogin()
@@ -33,7 +33,7 @@ class HomeController extends BaseController {
 		$email = Input::get('email');
 		$password = Input::get('password');
 		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
-		    return Redirect::intended('/posts');
+		    return Redirect::intended('/');
 		} else {
 			Session::flash('errorMessage', 'Email and password combination failed');
 			Log::info('validator failed', Input::all());
@@ -48,7 +48,7 @@ class HomeController extends BaseController {
 	{
 		Auth::logout();
 		//Session flash for logout
-		return Redirect::to('/posts');
+		return Redirect::to('/');
 	}
 
 }

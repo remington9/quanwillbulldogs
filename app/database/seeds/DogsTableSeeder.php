@@ -48,6 +48,24 @@ class DogsTableSeeder extends Seeder {
         $dog1->banner = '0';
         $dog1->save();
 
+        $dog1 = new Dog();
+        $dog1->name = 'Crush';
+        $dog1->comment = 'this is crush';
+        $dog1->gender = 'male';
+        $dog1->img_url = 'crushHead.jpg';
+        $dog1->user_id = '1';
+        $dog1->banner = '0';
+        $dog1->save();
+
+        $dog1 = new Dog();
+        $dog1->name = 'Crush';
+        $dog1->comment = 'this is crush';
+        $dog1->gender = 'male';
+        $dog1->img_url = 'nc.jpg';
+        $dog1->user_id = '1';
+        $dog1->banner = '0';
+        $dog1->save();
+
         $dog4 = new Dog();
         $dog4->name = 'Nehi';
         $dog4->comment = 'this is Nehi';
