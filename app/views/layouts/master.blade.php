@@ -76,6 +76,7 @@
       <p class="col-lg-5 col-md-6 col-xs-12">Bullnanza Bulldogges Bulverde, Texas 78163</p>
       <p class="col-lg-3 col-md-2 col-xs-12"><a href="tel:+12105443004">210-544-3004</a></p>
       <p class="col-lg-4 col-md-4 col-xs-12">© Copyright 2009 Bullnanza Bulldogges</p>
+      <p class="col-lg-4 col-lg-offset-5 col-md-4  col-md-offset-5 col-xs-12">Coded by <a href="https://www.remingtonwilliams.com/resume">Remington</a></p>
     </div>
 </footer>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

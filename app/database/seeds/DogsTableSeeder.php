@@ -36,6 +36,7 @@ class DogsTableSeeder extends Seeder {
         $dog3->img_url = 'trooperBanner.jpg';
         $dog3->user_id = '1';
         $dog3->banner = '1';
+        $dog3->retired = '1';
         $dog3->save();
 
         $dog1 = new Dog();
@@ -54,6 +55,7 @@ class DogsTableSeeder extends Seeder {
         $dog4->img_url = 'nehiBanner.jpg';
         $dog4->user_id = '1';
         $dog4->banner = '1';
+        $dog4->retired = '1';
         $dog4->save();
 
         $dog5 = new Dog();

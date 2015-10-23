@@ -24,7 +24,7 @@
     </div>
     <div class="row">
         <h2 class="centeredText"><u>Mailing Address</u></h2>
-        <img class="thumbnail col-md-4 col-sm-12 col-xs-12" src="/img/shasta.jpg" alt="">
+        <img class="thumbnail col-md-4 col-sm-12 col-xs-12" src="/img/contactPage/0.jpg" alt="">
         <h4 class="centeredText col-md-4 col-sm-12 col-xs-12">
             Bullnanza Bulldogges<br>
             Balverde, Tx 78163

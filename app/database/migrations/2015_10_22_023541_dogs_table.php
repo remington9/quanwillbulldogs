@@ -20,6 +20,7 @@ class DogsTable extends Migration {
 			$table->string('gender',10);
 			$table->string('img_url',100);
 			$table->string('banner',1)->default('0');
+			$table->string('retired',1)->default('0');
 			$table->timestamps();
 		});
 	}

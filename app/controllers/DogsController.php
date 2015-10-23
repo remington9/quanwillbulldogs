@@ -80,7 +80,7 @@ class DogsController extends BaseController {
 
 	public function gender($gender)
 	{
-		$dog = Dog::where('gender', $gender)->where('banner','1')->get();
+		$dog = Dog::where('gender', $gender)->where('banner','1')->where('retired','0')->get();
 		if(!$dog){
 			Session::flash('errorMessage', "Something went wrong, no dog with gender: $gender found!");
 			App::abort(404);
@@ -89,6 +89,16 @@ class DogsController extends BaseController {
 		return View::make('dogs.gender')->with('dogs',$dog);
 	}
 
+	public function retired($gender)
+	{
+		$dog = Dog::where('gender', $gender)->where('banner','1')->where('retired','1')->get();
+		if(!$dog){
+			Session::flash('errorMessage', "Something went wrong, no retired dogs with gender: $gender found!");
+			App::abort(404);
+		}
+		Log::info("$gender dog(s) found");
+		return View::make('dogs.retired')->with('dogs',$dog);
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
