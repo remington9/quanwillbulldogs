@@ -34,8 +34,8 @@
                <li {{ Request::is('home')? 'class="active"': '' }}><a href="/">Home</a></li>
                <li {{ Request::is('about')? 'class="active"': '' }}><a href="/about">About</a></li>
                <li {{ Request::is('contact')? 'class="active"': '' }}><a href="/contact">Contact</a></li>
-               <li {{ Request::is('males')? 'class="active"': '' }}><a href="#">Males</a></li>
-               <li {{ Request::is('female')? 'class="active"': '' }}><a href="#">Females</a></li>
+               <li {{ Request::is('males')? 'class="active"': '' }}><a href="{{{action('DogsController@gender', 'male')}}}">Males</a></li>
+               <li {{ Request::is('female')? 'class="active"': '' }}><a href="{{{action('DogsController@gender', 'female')}}}">Females</a></li>
                <li {{ Request::is('upcomingBreeding')? 'class="active"': '' }}><a href="#">Upcoming Breeding</a></li>
                <li {{ Request::is('availablePuppies')? 'class="active"': '' }}><a href="#">Available Puppies</a></li>
                <li {{ Request::is('pastLitters')? 'class="active"': '' }}><a href="#">Past Litters</a></li>
@@ -73,7 +73,7 @@
 <footer class="footer navbar-bottom">
     <div class="container">
       <hr>
-      <p class="col-lg-5 col-md-6 col-xs-12">Bullnanza Bulldogges P.O. Box 331 Bulverde, Texas 78163</p>
+      <p class="col-lg-5 col-md-6 col-xs-12">Bullnanza Bulldogges Bulverde, Texas 78163</p>
       <p class="col-lg-3 col-md-2 col-xs-12"><a href="tel:+12105443004">210-544-3004</a></p>
       <p class="col-lg-4 col-md-4 col-xs-12">© Copyright 2009 Bullnanza Bulldogges</p>
     </div>

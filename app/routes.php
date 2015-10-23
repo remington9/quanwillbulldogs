@@ -24,7 +24,9 @@ Route::get('contact', function()
     return View::make('contact');
 });
 
-Route::resource('posts', 'PostsController');
+Route::resource('dogs', 'DogsController');
+Route::get('/gender/{gender}', 'DogsController@gender');
+
 
 //login routes
 Route::get('/login', 'HomeController@showLogin');

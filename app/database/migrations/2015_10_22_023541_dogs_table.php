@@ -17,7 +17,9 @@ class DogsTable extends Migration {
 			$table->increments('id');
 			$table->string('name',100);
 			$table->string('comment',200);
-			$table->string('img_url');
+			$table->string('gender',10);
+			$table->string('img_url',100);
+			$table->string('banner',1)->default('0');
 			$table->timestamps();
 		});
 	}

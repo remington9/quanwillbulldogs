@@ -1,6 +1,13 @@
 <?php
 
-class DogsController extends \BaseController {
+class DogsController extends BaseController {
+
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->beforeFilter('auth', array('except' => array('index', 'show')));
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -20,7 +27,7 @@ class DogsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('dogs.create');
 	}
 
 
@@ -31,7 +38,25 @@ class DogsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		    // create the validator
+		    $validator = Validator::make(Input::all(), Dog::$rules);
+
+		    // attempt validation
+		    if ($validator->fails()) {
+		    	Log::info('Validator failed', Input::all());
+		    	Session::flash('errorMessage', 'Something went wrong please refer to the errors below:');
+		        // validation failed, redirect to the dog create page with validation errors and old inputs
+		        return Redirect::back()->withInput()->withErrors($validator);
+		    } else {
+
+				$dog = new Dog();
+			    $dog->name = Input::get('name');
+			    $dog->img_url = Input::get('img_url');
+			    $dog->user_id = Auth::id();
+			    $dog->save();
+		    	Session::flash('successMessage', 'Your dog was saved successfully');
+			    return Redirect::action('DogsController@index');
+			}
 	}
 
 
@@ -41,9 +66,27 @@ class DogsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($name)
 	{
-		//
+		$dog = Dog::where('name',$name)->where('banner', '0')->get();
+
+		if(!$dog){
+			Session::flash('errorMessage', "Something went wrong, no dog with name: $name found!");
+			App::abort(404);
+		}
+		Log::info("dog named $name found");
+		return View::make('dogs.show')->with('dogs',$dog);
+	}
+
+	public function gender($gender)
+	{
+		$dog = Dog::where('gender', $gender)->where('banner','1')->get();
+		if(!$dog){
+			Session::flash('errorMessage', "Something went wrong, no dog with gender: $gender found!");
+			App::abort(404);
+		}
+		Log::info("$gender dog(s) found");
+		return View::make('dogs.gender')->with('dogs',$dog);
 	}
 
 
