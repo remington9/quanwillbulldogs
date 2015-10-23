@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@if($dog)
 @section('title')
     @foreach($dogs as $key)
     @endforeach
@@ -15,3 +16,4 @@
         </div>
     @endforeach
 @stop
+@endif
