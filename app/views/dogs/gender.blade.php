@@ -11,11 +11,12 @@
             <a href="{{{action('DogsController@show', $key->name)}}}">
                 <img class="img-responsive col-md-12 thumbnail" src="/img/dogs/{{{ $key->img_url }}}" alt="">
             </a>
-            <hr>
         </div>
+        <hr>
     @endforeach
     <div class="row">
         <a href="{{{action('DogsController@retired', $key->gender)}}}">
+            <h3 class="centeredText">Retired {{{ $key->gender}}}s</h3>
             <img class="img-responsive col-md-6 col-md-offset-3 thumbnail" src="/img/dogs/retired/{{{ $key->gender }}}s.jpg" alt="">
         </a>
     </div>

@@ -2,7 +2,7 @@
 @section('title')
     @foreach($dogs as $key)
     @endforeach
-    <title>{{{ $key->name }}}s</title>
+    <title>{{{ $key->name }}}</title>
 @stop
 @section('content')
     <h1 class="canevalee centeredText">{{{ $key->name }}}</h1><hr>

@@ -10,6 +10,20 @@ hr{
     height: 1px;
 }
 
+.center{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.redText{
+    color: red;
+    font-weight: bold;
+}
+.greenText{
+    color: green;
+    font-weight: bold;
+}
+
 .container{
     background-color: #FFE6A7;
 }

@@ -4,7 +4,7 @@
     @endforeach
     <title>Retired {{{ $key->gender }}}s</title>@stop
 @section('content')
-  <h1 class="canevalee centeredText">{{{ $key->gender }}}s</h1><hr>
+  <h1 class="canevalee centeredText">Retired {{{ $key->gender }}}s</h1><hr>
     @foreach($dogs as $key)
         <div class="row">
             <a href="{{{action('DogsController@show', $key->name)}}}">

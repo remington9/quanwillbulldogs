@@ -27,6 +27,7 @@ Route::get('contact', function()
 Route::resource('dogs', 'DogsController');
 Route::get('/gender/{gender}', 'DogsController@gender');
 Route::get('/retired/{gender}', 'DogsController@retired');
+Route::get('/puppies/{past}', 'DogsController@puppies');
 
 
 //login routes

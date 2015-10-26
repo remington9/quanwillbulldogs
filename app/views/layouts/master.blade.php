@@ -12,7 +12,7 @@
     <link href="/css/master.css" rel="stylesheet">
 </head>
 <body>
-<header>
+
     <div class="container">
         <img id="banner" src="/img/banner.jpg" alt="">
     <nav class="navbar navbar-default nav-justified navbar-inverse navbar-static-top">
@@ -34,18 +34,18 @@
                <li {{ Request::is('home')? 'class="active"': '' }}><a href="/">Home</a></li>
                <li {{ Request::is('about')? 'class="active"': '' }}><a href="/about">About</a></li>
                <li {{ Request::is('contact')? 'class="active"': '' }}><a href="/contact">Contact</a></li>
-               <li {{ Request::is('males')? 'class="active"': '' }}><a href="{{{action('DogsController@gender', 'male')}}}">Males</a></li>
-               <li {{ Request::is('female')? 'class="active"': '' }}><a href="{{{action('DogsController@gender', 'female')}}}">Females</a></li>
-               <li {{ Request::is('upcomingBreeding')? 'class="active"': '' }}><a href="#">Upcoming Breeding</a></li>
-               <li {{ Request::is('availablePuppies')? 'class="active"': '' }}><a href="#">Available Puppies</a></li>
-               <li {{ Request::is('pastLitters')? 'class="active"': '' }}><a href="#">Past Litters</a></li>
+               <li {{ Request::is('gender/male')? 'class="active"': '' }}><a href="{{{action('DogsController@gender', 'Male')}}}">Males</a></li>
+               <li {{ Request::is('gender/female')? 'class="active"': '' }}><a href="{{{action('DogsController@gender', 'Female')}}}">Females</a></li>
+               <li {{ Request::is('fundoggepics')? 'class="active"': '' }}><a href="#">Fun Dogge Pics</a></li>
+               <li {{ Request::is('puppies/0')? 'class="active"': '' }}><a href="{{{action('DogsController@puppies', '0')}}}">Available Puppies</a></li>
+               <li {{ Request::is('puppies/1')? 'class="active"': '' }}><a href="{{{action('DogsController@puppies', '1')}}}">Past Litters</a></li>
              </ul>
            </div><!-- /.navbar-collapse -->
         </div>
     </nav>
     </div>
-</header>
-<main>
+
+
     <div class="container">
         @if (Session::has('successMessage'))
             <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
@@ -69,7 +69,7 @@
         @yield('error')
         @yield('content')
     </div>
-</main>
+
 <footer class="footer navbar-bottom">
     <div class="container">
       <hr>

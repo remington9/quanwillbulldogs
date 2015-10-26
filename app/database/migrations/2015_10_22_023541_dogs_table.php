@@ -19,8 +19,13 @@ class DogsTable extends Migration {
 			$table->string('comment',200);
 			$table->string('gender',10);
 			$table->string('img_url',100);
+			$table->string('img_url2',100)->nullable();
 			$table->string('banner',1)->default('0');
 			$table->string('retired',1)->default('0');
+			$table->string('puppy',1)->default('0');
+			$table->string('sold',1)->default('0');
+			$table->string('past',1)->default('1');
+			$table->string('parent',10)->nullable();
 			$table->timestamps();
 		});
 	}

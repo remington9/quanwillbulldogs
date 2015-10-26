@@ -79,7 +79,7 @@ class DogsController extends BaseController {
 	{
 		$dog = Dog::where('name',$name)->where('banner', '0')->get();
 
-		if(!$dog){
+		if(count($dog) < 1){
 			Session::flash('errorMessage', "Something went wrong, no dog with name: $name found!");
 			App::abort(404);
 		}
@@ -90,7 +90,7 @@ class DogsController extends BaseController {
 	public function gender($gender)
 	{
 		$dog = Dog::where('gender', $gender)->where('banner','1')->where('retired','0')->get();
-		if(!$dog){
+		if(count($dog) < 1){
 			Session::flash('errorMessage', "Something went wrong, no dog with gender: $gender found!");
 			App::abort(404);
 		}
@@ -101,12 +101,31 @@ class DogsController extends BaseController {
 	public function retired($gender)
 	{
 		$dog = Dog::where('gender', $gender)->where('banner','1')->where('retired','1')->get();
-		if(!$dog){
+		if(count($dog) < 1){
 			Session::flash('errorMessage', "Something went wrong, no retired dogs with gender: $gender found!");
 			App::abort(404);
 		}
 		Log::info("$gender dog(s) found");
 		return View::make('dogs.retired')->with('dogs',$dog);
+	}
+
+	public function puppies($past)
+	{
+		$noDog = "0";
+		$dog = Dog::where('past', $past)->where('banner','0')->where('puppy','1')->get();
+		$dad = Dog::where('parent', 'Dad')->get();
+		$mom = Dog::where('parent', 'Mom')->get();
+		if(count($dog) < 1){
+			$noDog = "1";
+		}
+		$data = [
+			'dogs' => $dog,
+			'past' => $past,
+			'noDogs' => $noDog,
+			'dad' => $dad,
+			'mom' => $mom
+		];
+		return View::make('dogs.pup')->with($data);
 	}
 
 	/**
