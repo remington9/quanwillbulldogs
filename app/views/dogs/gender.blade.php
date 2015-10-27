@@ -9,7 +9,9 @@
     @foreach($dogs as $key)
         <div class="row">
             <a href="{{{action('DogsController@show', $key->name)}}}">
-                <img class="img-responsive col-md-12 thumbnail" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                <div class="col-md-12">
+                <img class="img-responsive thumbnail" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                </div>
             </a>
         </div>
         <hr>
