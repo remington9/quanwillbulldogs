@@ -31,7 +31,7 @@
     </div>
     <div class="row">
         <div class="col-lg-3 col-md-4 col-xs-6">
-            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/bullnanza bulldogges welcome page9.JPG" alt="">
+            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/bullnanza bulldogges welcome page9.jpg" alt="">
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
             <img class="img-responsive thumbnail" src="/img/welcomePageImgs/Cinch2L.jpg" alt="">
