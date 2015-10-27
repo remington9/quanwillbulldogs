@@ -17,7 +17,7 @@
     <hr>
     <div class="row">
         <div class="col-lg-3 col-md-4 col-xs-6">
-            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/bullnanza bulldogges welcome page2.jpg" alt="">
+            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/bullnanzabulldoggeswelcomepage2.jpg" alt="">
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
             <img class="img-responsive thumbnail" src="/img/welcomePageImgs/nehi.jpg" alt="">
@@ -26,12 +26,12 @@
             <img class="img-responsive thumbnail" src="/img/welcomePageImgs/Trooper.jpg" alt="">
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
-            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/bullnanza bulldogges welcome page8.gif" alt="">
+            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/bullnanzabulldoggeswelcomepage8.gif" alt="">
         </div>
     </div>
     <div class="row">
         <div class="col-lg-3 col-md-4 col-xs-6">
-            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/bullnanza bulldogges welcome page9.jpg" alt="">
+            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/bullnanzabulldoggeswelcomepage9.jpg" alt="">
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
             <img class="img-responsive thumbnail" src="/img/welcomePageImgs/Cinch2L.jpg" alt="">
