@@ -40,12 +40,12 @@
             <img class="img-responsive thumbnail" src="/img/welcomePageImgs/fanta.jpg" alt="">
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
-            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/Crush6.jpg" alt="">
+            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/Crush6.JPG" alt="">
         </div>
     </div>
     <div class="row">
         <div class="col-lg-3 col-md-4 col-xs-6">
-            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/Crush7.jpg" alt="">
+            <img class="img-responsive thumbnail" src="/img/welcomePageImgs/Crush7.JPG" alt="">
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
             <img class="img-responsive thumbnail" src="/img/welcomePageImgs/Shasta2.jpg" alt="">
