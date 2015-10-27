@@ -40,7 +40,16 @@
     @endif
     @foreach($dogs as $key)
         @if($key->past == $past && $past == "1")
-            <img class="img-responsive col-lg-4 col-md-4 col-xs-12 col-sm-12 thumbnail" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+           <div class="jumbotron col-lg-6 col-md-6 col-xs-12 col-sm-12 heightSet">
+               <img class="img-responsive thumbnail center maxMin" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+           </div>
+           @if($key->img_url2 != '')
+               <div class="jumbotron col-lg-6 col-md-6 col-xs-12 col-sm-12 heightSet">
+                   <div class="maxMin">
+                   <img class="img-responsive thumbnail center" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                   </div>
+               </div>
+           @endif
         @endif
     @endforeach
 @stop
