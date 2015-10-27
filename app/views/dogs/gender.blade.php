@@ -10,7 +10,7 @@
         <div class="row">
             <a href="{{{action('DogsController@show', $key->name)}}}">
                 <div class="col-md-12">
-                <img class="img-responsive thumbnail" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                    <img class="img-responsive thumbnail center" src="/img/dogs/{{{ $key->img_url }}}" alt="">
                 </div>
             </a>
         </div>
