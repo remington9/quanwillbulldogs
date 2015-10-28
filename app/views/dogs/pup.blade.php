@@ -48,7 +48,7 @@
                    </div>
                    @if($key->img_url2 != '')
                        <div class=" col-md-3 col-xs-12">
-                           <img class="img-responsive thumbnail" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                           <img class="img-responsive thumbnail" src="/img/dogs/{{{ $key->img_url2 }}}" alt="">
                        </div>
                        <?php $i++ ?>
                    @endif
@@ -63,7 +63,7 @@
                    <?php $i=1 ?>
                    @if($key->img_url2 != '')
                        <div class=" col-md-3 col-xs-12">
-                           <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                           <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url2 }}}" alt="">
                        </div>
                        <?php $i=2 ?>
                    @endif
