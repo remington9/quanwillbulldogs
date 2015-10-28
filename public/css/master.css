@@ -11,12 +11,16 @@ hr{
 }
 
 .heightSet{
-    height:400px;
+    height:250px;
 }
 
-.maxMin{
+.well{
+    background: #FFE6A7;
+}
+
+.maxHeight{
     max-height: 100%;
-    min-height: 300px;
+    min-height: 95%
 }
 
 .center{

@@ -38,18 +38,39 @@
             <h1 class="centeredText canevalee">Puppies Coming Soon!</h1>
         </div>
     @endif
-    @foreach($dogs as $key)
-        @if($key->past == $past && $past == "1")
-           <div class="jumbotron col-lg-6 col-md-6 col-xs-12 col-sm-12 heightSet">
-               <img class="img-responsive thumbnail center maxMin" src="/img/dogs/{{{ $key->img_url }}}" alt="">
-           </div>
-           @if($key->img_url2 != '')
-               <div class="jumbotron col-lg-6 col-md-6 col-xs-12 col-sm-12 heightSet">
-                   <div class="maxMin">
-                   <img class="img-responsive thumbnail center" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+    <div class="row">
+        <?php $i=1; ?>
+        @foreach($dogs as $key)
+            @if($i < 4)
+                @if($key->past == $past && $past == "1")
+                   <div class="col-md-3 col-xs-12 ">
+                       <img class="thumbnail img-responsive" src="/img/dogs/{{{ $key->img_url }}}" alt="">
                    </div>
-               </div>
-           @endif
-        @endif
-    @endforeach
+                   @if($key->img_url2 != '')
+                       <div class=" col-md-3 col-xs-12">
+                           <img class="img-responsive thumbnail" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                       </div>
+                       <?php $i++ ?>
+                   @endif
+                @endif
+                <?php $i++ ?>
+            @else
+                <div class="row">
+                @if($key->past == $past && $past == "1")
+                   <div class="col-md-3 col-xs-12 ">
+                       <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                   </div>
+                   <?php $i=1 ?>
+                   @if($key->img_url2 != '')
+                       <div class=" col-md-3 col-xs-12">
+                           <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                       </div>
+                       <?php $i=2 ?>
+                   @endif
+                @endif
+                </div>
+                
+            @endif
+        @endforeach
+    </div>
 @stop
