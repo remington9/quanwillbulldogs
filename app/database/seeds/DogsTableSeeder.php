@@ -111,6 +111,7 @@ class DogsTableSeeder extends Seeder {
         $dog->puppy = '1';
         $dog->sold = '1';
         $dog->past = '1';
+        $dog->fun = '1';
         $dog->save();
 
         $dog = new Dog();
@@ -159,6 +160,7 @@ class DogsTableSeeder extends Seeder {
         $dog->puppy = '1';
         $dog->sold = '1';
         $dog->past = '1';
+        $dog->fun = '1';
         $dog->save();
 
         $dog2 = new Dog();

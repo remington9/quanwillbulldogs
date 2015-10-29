@@ -21,8 +21,9 @@ Route::get('contact', function()
     return View::make('contact');
 });
 
-Route::get('/', 'DogsController@index');
 Route::resource('dogs', 'DogsController');
+Route::get('/', 'DogsController@index');
+Route::get('/fundoggepics', 'DogsController@fun');
 Route::get('/gender/{gender}', 'DogsController@gender');
 Route::get('/retired/{gender}', 'DogsController@retired');
 Route::get('/puppies/{past}', 'DogsController@puppies');

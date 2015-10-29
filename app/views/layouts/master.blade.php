@@ -36,7 +36,7 @@
                <li {{ Request::is('contact')? 'class="active"': '' }}><a href="/contact">Contact</a></li>
                <li {{ Request::is('gender/male')? 'class="active"': '' }}><a href="{{{action('DogsController@gender', 'Male')}}}">Males</a></li>
                <li {{ Request::is('gender/female')? 'class="active"': '' }}><a href="{{{action('DogsController@gender', 'Female')}}}">Females</a></li>
-               <li {{ Request::is('fundoggepics')? 'class="active"': '' }}><a href="#">Fun Dogge Pics</a></li>
+               <li {{ Request::is('fundoggepics')? 'class="active"': '' }}><a href="{{{action('DogsController@fun')}}}">Fun Dogge Pics</a></li>
                <li {{ Request::is('puppies/0')? 'class="active"': '' }}><a href="{{{action('DogsController@puppies', '0')}}}">Available Puppies</a></li>
                <li {{ Request::is('puppies/1')? 'class="active"': '' }}><a href="{{{action('DogsController@puppies', '1')}}}">Past Litters</a></li>
 

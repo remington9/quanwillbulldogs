@@ -11,6 +11,9 @@
             <a href="{{{action('DogsController@show', $key->name)}}}">
                 <div class="col-md-12">
                     <img class="img-responsive thumbnail center" src="/img/dogs/{{{ $key->img_url }}}" alt="">
+                    @if(Auth::id() == $key->user_id)
+                        <a href="{{{action('DogsController@edit', $key->id)}}}" class="btn btn-warning btn-block">Edit</a>
+                    @endif
                 </div>
             </a>
         </div>

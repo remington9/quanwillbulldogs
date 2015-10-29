@@ -84,6 +84,7 @@ class DogsController extends BaseController {
 	    		    $dog->sold = Input::get('sold');
 	    		    $dog->mom = Input::get('mom');
 	    		    $dog->dad = Input::get('dad');
+	    		    $dog->fun = Input::get('fun');
 	    		    $dog->img_url = $filename;
 	    		    $dog->img_url2 = $filename2;
 	    		    $dog->user_id = Auth::id();
@@ -103,6 +104,7 @@ class DogsController extends BaseController {
 			    $dog->sold = Input::get('sold');
 			    $dog->mom = Input::get('mom');
 			    $dog->dad = Input::get('dad');
+			    $dog->fun = Input::get('fun');
 			    $dog->img_url = $filename;
 			    $dog->user_id = Auth::id();
 			    $dog->save();
@@ -143,13 +145,23 @@ class DogsController extends BaseController {
 
 	public function retired($gender)
 	{
-		$dog = Dog::where('gender', $gender)->where('banner','1')->where('retired','1')->get();
-		if(count($dog) < 1){
+		$dogs = Dog::where('gender', $gender)->where('banner','1')->where('retired','1')->get();
+		if(count($dogs) < 1){
 			Session::flash('errorMessage', "Something went wrong, no retired $gender dogs with found!");
 			App::abort(404);
 		}
 		Log::info("$gender dog(s) found");
-		return View::make('dogs.retired')->with('dogs',$dog);
+		return View::make('dogs.retired')->with('dogs',$dogs);
+	}
+
+	public function fun()
+	{
+		$dogs = Dog::where('banner','0')->where('fun','1')->get();
+		if(count($dogs) < 1){
+			Session::flash('errorMessage', "Something went wrong, no fun dog pictures found!");
+			App::abort(404);
+		}
+		return View::make('dogs.fun')->with('dogs',$dogs);
 	}
 
 	public function puppies($past)
@@ -242,6 +254,7 @@ class DogsController extends BaseController {
 	    		    $dog->sold = Input::get('sold');
 	    		    $dog->mom = Input::get('mom');
 	    		    $dog->dad = Input::get('dad');
+	    		    $dog->fun = Input::get('fun');
 	    		    $dog->img_url = $filename;
 	    		    $dog->img_url2 = $filename2;
 	    		    $dog->user_id = Auth::id();
@@ -259,6 +272,7 @@ class DogsController extends BaseController {
 				    $dog->sold = Input::get('sold');
 				    $dog->mom = Input::get('mom');
 				    $dog->dad = Input::get('dad');
+				    $dog->fun = Input::get('fun');
 				    $dog->img_url = $filename;
 				    $dog->user_id = Auth::id();
 				    $dog->save();
@@ -276,6 +290,7 @@ class DogsController extends BaseController {
 				$dog->sold = Input::get('sold');
 				$dog->mom = Input::get('mom');
 				$dog->dad = Input::get('dad');
+				$dog->fun = Input::get('fun');
 				$dog->user_id = Auth::id();
 				$dog->save();
 				Session::flash('successMessage', 'Your dog was updated successfully');
@@ -294,14 +309,15 @@ class DogsController extends BaseController {
 	public function destroy($id)
 	{
 		$dog = Dog::find($id);
+		if(!$dog){
+			Session::flash('errorMessage', "Something went wrong, no dog with id: $id found!");
+			App::abort(404);
+		}
 		Dog::find($id)->delete();
 
         return Redirect::action('DogsController@index');
 
-        if(!$dog){
-			Session::flash('errorMessage', "Something went wrong, no dog with id: $id found!");
-			App::abort(404);
-		}
+        
 	}
 
 

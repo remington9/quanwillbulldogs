@@ -27,6 +27,7 @@ class DogsTable extends Migration {
 			$table->string('past',1)->default('1');
 			$table->string('mom',30)->nullable();
 			$table->string('dad',30)->nullable();
+			$table->string('fun',30)->default('0');
 			$table->timestamps();
 		});
 	}
