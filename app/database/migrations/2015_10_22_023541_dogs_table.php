@@ -16,7 +16,7 @@ class DogsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name',100);
-			$table->string('comment',200);
+			$table->string('comment',200)->nullable();
 			$table->string('gender',10);
 			$table->string('img_url',100);
 			$table->string('img_url2',100)->nullable();
@@ -25,7 +25,8 @@ class DogsTable extends Migration {
 			$table->string('puppy',1)->default('0');
 			$table->string('sold',1)->default('0');
 			$table->string('past',1)->default('1');
-			$table->string('parent',10)->nullable();
+			$table->string('mom',30)->nullable();
+			$table->string('dad',30)->nullable();
 			$table->timestamps();
 		});
 	}

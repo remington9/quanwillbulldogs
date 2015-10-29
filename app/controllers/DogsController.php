@@ -22,7 +22,21 @@ class DogsController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('dogs.create');
+		$dogs = Dog::where('retired', '0')->where('banner','1')->where('puppy','0')->get();
+		$dads[''] = 'select';
+		$moms[''] = 'select';
+		foreach($dogs as $dog){
+			if($dog->gender == 'Male')
+				$dads[$dog->name] = $dog->name;
+			else
+				$moms[$dog->name] = $dog->name;
+		}
+
+		$data = [
+			'moms'=>$moms,
+			'dads'=>$dads
+		];
+		return View::make('dogs.create')->with($data);
 	}
 
 
@@ -49,12 +63,42 @@ class DogsController extends BaseController {
 		    	$filename = $file->getClientOriginalName();
 		    	Input::file('img_url')->move($destinationPath, $filename);
 
+		    	if(Input::file('img_url2') != ''){
+			    	$file2 = Input::file('img_url2');
+			    	$destinationPath = public_path() . '/img/dogs';
+			    	$filename2 = $file2->getClientOriginalName();
+			    	Input::file('img_url2')->move($destinationPath, $filename2);
+
+	    			$dog = new Dog();
+	    		    $dog->name = Input::get('name');
+	    		    $dog->comment = Input::get('comment');
+	    		    $dog->gender = Input::get('gender');
+	    		    $dog->banner = Input::get('banner');
+	    		    $dog->retired = Input::get('retired');
+	    		    $dog->puppy = Input::get('puppy');
+	    		    $dog->past = Input::get('past');
+	    		    $dog->sold = Input::get('sold');
+	    		    $dog->mom = Input::get('mom');
+	    		    $dog->dad = Input::get('dad');
+	    		    $dog->img_url = $filename;
+	    		    $dog->img_url2 = $filename2;
+	    		    $dog->user_id = Auth::id();
+	    		    $dog->save();
+	    	    	Session::flash('successMessage', 'Your dog was saved successfully');
+	    		    return Redirect::action('DogsController@create');
+			    }
+
 				$dog = new Dog();
 			    $dog->name = Input::get('name');
 			    $dog->comment = Input::get('comment');
 			    $dog->gender = Input::get('gender');
 			    $dog->banner = Input::get('banner');
 			    $dog->retired = Input::get('retired');
+			    $dog->puppy = Input::get('puppy');
+			    $dog->past = Input::get('past');
+			    $dog->sold = Input::get('sold');
+			    $dog->mom = Input::get('mom');
+			    $dog->dad = Input::get('dad');
 			    $dog->img_url = $filename;
 			    $dog->user_id = Auth::id();
 			    $dog->save();
@@ -86,7 +130,7 @@ class DogsController extends BaseController {
 	{
 		$dog = Dog::where('gender', $gender)->where('banner','1')->where('retired','0')->get();
 		if(count($dog) < 1){
-			Session::flash('errorMessage', "Something went wrong, no dog with gender: $gender found!");
+			Session::flash('errorMessage', "Something went wrong, no $gender dogs with found!");
 			App::abort(404);
 		}
 		Log::info("$gender dog(s) found");
@@ -97,7 +141,7 @@ class DogsController extends BaseController {
 	{
 		$dog = Dog::where('gender', $gender)->where('banner','1')->where('retired','1')->get();
 		if(count($dog) < 1){
-			Session::flash('errorMessage', "Something went wrong, no retired dogs with gender: $gender found!");
+			Session::flash('errorMessage', "Something went wrong, no retired $gender dogs with found!");
 			App::abort(404);
 		}
 		Log::info("$gender dog(s) found");
@@ -108,8 +152,7 @@ class DogsController extends BaseController {
 	{
 		$noDog = "0";
 		$dog = Dog::where('past', $past)->where('banner','0')->where('puppy','1')->get();
-		$dad = Dog::where('parent', 'Dad')->get();
-		$mom = Dog::where('parent', 'Mom')->get();
+
 		if(count($dog) < 1){
 			$noDog = "1";
 		}
@@ -117,8 +160,6 @@ class DogsController extends BaseController {
 			'dogs' => $dog,
 			'past' => $past,
 			'noDogs' => $noDog,
-			'dad' => $dad,
-			'mom' => $mom
 		];
 		return View::make('dogs.pup')->with($data);
 	}
@@ -131,7 +172,23 @@ class DogsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$singleDog = Dog::find($id);
+		$dogs = Dog::where('retired', '0')->where('banner','1')->where('puppy','0')->get();
+		$dads[''] = 'select';
+		$moms[''] = 'select';
+		foreach($dogs as $dog){
+			if($dog->gender == 'Male')
+				$dads[$dog->name] = $dog->name;
+			else
+				$moms[$dog->name] = $dog->name;
+		}
+
+		$data = [
+			'moms'=>$moms,
+			'dads'=>$dads,
+			'singleDog'=>$singleDog
+		];
+		return View::make('dogs.edit')->with($data);
 	}
 
 
@@ -143,7 +200,85 @@ class DogsController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		// create the validator
+	    $validator = Validator::make(Input::all(), Dog::$editRules);
+
+	    // attempt validation
+	    if ($validator->fails()) {
+	    	Session::flash('errorMessage', 'Something went wrong please refer to the errors below:');
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$dog = Dog::find($id);
+
+			if(!$dog){
+				Session::flash('errorMessage', "Something went wrong, no dog with id: $id found!");
+				App::abort(404);
+			}
+
+			if(Input::file('img_url') != ''){
+		    	$file = Input::file('img_url');
+		    	$destinationPath = public_path() . '/img/dogs';
+		    	$filename = $file->getClientOriginalName();
+		    	Input::file('img_url')->move($destinationPath, $filename);
+
+		    	if(Input::file('img_url2') != ''){
+			    	$file2 = Input::file('img_url2');
+			    	$destinationPath = public_path() . '/img/dogs';
+			    	$filename2 = $file2->getClientOriginalName();
+			    	Input::file('img_url2')->move($destinationPath, $filename2);
+
+	    		    $dog->name = Input::get('name');
+	    		    $dog->comment = Input::get('comment');
+	    		    $dog->gender = Input::get('gender');
+	    		    $dog->banner = Input::get('banner');
+	    		    $dog->retired = Input::get('retired');
+	    		    $dog->puppy = Input::get('puppy');
+	    		    $dog->past = Input::get('past');
+	    		    $dog->sold = Input::get('sold');
+	    		    $dog->mom = Input::get('mom');
+	    		    $dog->dad = Input::get('dad');
+	    		    $dog->img_url = $filename;
+	    		    $dog->img_url2 = $filename2;
+	    		    $dog->user_id = Auth::id();
+	    		    $dog->save();
+	    	    	Session::flash('successMessage', 'Your dog was updated successfully');
+	    		    return Redirect::action('DogsController@show', array('name'=>$dog->name));
+			    }else{
+				    $dog->name = Input::get('name');
+				    $dog->comment = Input::get('comment');
+				    $dog->gender = Input::get('gender');
+				    $dog->banner = Input::get('banner');
+				    $dog->retired = Input::get('retired');
+				    $dog->puppy = Input::get('puppy');
+				    $dog->past = Input::get('past');
+				    $dog->sold = Input::get('sold');
+				    $dog->mom = Input::get('mom');
+				    $dog->dad = Input::get('dad');
+				    $dog->img_url = $filename;
+				    $dog->user_id = Auth::id();
+				    $dog->save();
+			    	Session::flash('successMessage', 'Your dog was updated successfully');
+				    return Redirect::action('DogsController@show', array('name'=>$dog->name));
+				}
+			}else{
+				$dog->name = Input::get('name');
+				$dog->comment = Input::get('comment');
+				$dog->gender = Input::get('gender');
+				$dog->banner = Input::get('banner');
+				$dog->retired = Input::get('retired');
+				$dog->puppy = Input::get('puppy');
+				$dog->past = Input::get('past');
+				$dog->sold = Input::get('sold');
+				$dog->mom = Input::get('mom');
+				$dog->dad = Input::get('dad');
+				$dog->user_id = Auth::id();
+				$dog->save();
+				Session::flash('successMessage', 'Your dog was updated successfully');
+			    return Redirect::action('DogsController@show', array('name'=>$dog->name));
+			}
+		}
+
 	}
 
 

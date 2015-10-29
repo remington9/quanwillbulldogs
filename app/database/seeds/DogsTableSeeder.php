@@ -18,7 +18,6 @@ class DogsTableSeeder extends Seeder {
         $dog->img_url = 'crushBanner.jpg';
         $dog->user_id = '1';
         $dog->banner = '1';
-        $dog->parent = 'Dad';
         $dog->save();
 
         $dog = new Dog();
@@ -28,7 +27,6 @@ class DogsTableSeeder extends Seeder {
         $dog->img_url = 'ariatBanner.jpg';
         $dog->user_id = '1';
         $dog->banner = '1';
-        $dog->parent = 'Mom';
         $dog->save();
 
         $dog = new Dog();
@@ -54,6 +52,8 @@ class DogsTableSeeder extends Seeder {
         $dog->puppy = '1';
         $dog->sold = '0';
         $dog->past = '0';
+        $dog->dad = 'Crush';
+        $dog->mom = 'Ariat';
         $dog->save();
 
         $dog = new Dog();
@@ -67,6 +67,8 @@ class DogsTableSeeder extends Seeder {
         $dog->puppy = '1';
         $dog->sold = '0';
         $dog->past = '0';
+        $dog->dad = 'Crush';
+        $dog->mom = 'Ariat';
         $dog->save();
 
         $dog = new Dog();
@@ -80,6 +82,8 @@ class DogsTableSeeder extends Seeder {
         $dog->puppy = '1';
         $dog->sold = '1';
         $dog->past = '0';
+        $dog->dad = 'Crush';
+        $dog->mom = 'Ariat';
         $dog->save();
 
         $dog = new Dog();
@@ -93,6 +97,8 @@ class DogsTableSeeder extends Seeder {
         $dog->puppy = '1';
         $dog->sold = '1';
         $dog->past = '0';
+        $dog->dad = 'Crush';
+        $dog->mom = 'Ariat';
         $dog->save();
 
         $dog = new Dog();
