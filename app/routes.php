@@ -11,19 +11,17 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('welcome');
-});
 Route::get('about', function()
 {
     return View::make('about');
 });
+
 Route::get('contact', function()
 {
     return View::make('contact');
 });
 
+Route::get('/', 'DogsController@index');
 Route::resource('dogs', 'DogsController');
 Route::get('/gender/{gender}', 'DogsController@gender');
 Route::get('/retired/{gender}', 'DogsController@retired');

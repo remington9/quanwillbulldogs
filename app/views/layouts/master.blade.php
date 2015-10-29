@@ -39,6 +39,11 @@
                <li {{ Request::is('fundoggepics')? 'class="active"': '' }}><a href="#">Fun Dogge Pics</a></li>
                <li {{ Request::is('puppies/0')? 'class="active"': '' }}><a href="{{{action('DogsController@puppies', '0')}}}">Available Puppies</a></li>
                <li {{ Request::is('puppies/1')? 'class="active"': '' }}><a href="{{{action('DogsController@puppies', '1')}}}">Past Litters</a></li>
+
+               @if(Auth::user())
+                 <li {{ Request::is('dogs/create')? 'class="active"': '' }}><a href="{{{action('DogsController@create')}}}">Create</a></li>
+                 <li><a href="{{{action('HomeController@doLogout')}}}">Logout</a></li>
+               @endif
              </ul>
            </div><!-- /.navbar-collapse -->
         </div>
@@ -80,5 +85,6 @@
     </div>
 </footer>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+@yield('script')
 </body>
 </html>

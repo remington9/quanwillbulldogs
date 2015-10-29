@@ -3,6 +3,11 @@
 class DogsController extends BaseController {
 
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->beforeFilter('auth', array('except' => array('index', 'show', 'gender', 'retired', 'puppies')));
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -13,7 +18,6 @@ class DogsController extends BaseController {
 	{
 		return View::make('welcome');
 	}
-
 
 	/**
 	 * Show the form for creating a new resource.
@@ -281,7 +285,6 @@ class DogsController extends BaseController {
 
 	}
 
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -290,7 +293,15 @@ class DogsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$dog = Dog::find($id);
+		Dog::find($id)->delete();
+
+        return Redirect::action('DogsController@index');
+
+        if(!$dog){
+			Session::flash('errorMessage', "Something went wrong, no dog with id: $id found!");
+			App::abort(404);
+		}
 	}
 
 
