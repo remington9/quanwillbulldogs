@@ -6,7 +6,7 @@ class DogsController extends BaseController {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->beforeFilter('auth', array('except' => array('index', 'show', 'gender', 'retired', 'puppies')));
+		$this->beforeFilter('auth', array('except' => array('index', 'show', 'gender', 'retired', 'puppies', 'fun')));
 	}
 
 	/**
