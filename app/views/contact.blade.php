@@ -24,9 +24,9 @@
     <hr>
     <div class="jumbotron">
     <div class="row">
-        <img src="/img/mailDog.gif" class="col-md-2" alt="">
-        <a href="mail:bullnanzabulldogges@gmail.com"><h2 class="col-md-8 col-md-offset-1 visible-lg visible-xlg visible-md">bullnanzabulldogges@gmail.com</h2></a>
-        <a href="mail:bullnanzabulldogges@gmail.com"><h3 class="visible-xs visible-sm col-xs-10 col-xs-offset-1">bullnanzabulldogges@gmail.com</h3></a>
+        <a href="mailto:bullnanzabulldogges@gmail.com"><img src="/img/mailDog.gif" class="col-md-2" alt=""></a>
+        <a href="mailto:bullnanzabulldogges@gmail.com"><h2 class="col-md-8 col-md-offset-1 visible-lg visible-xlg visible-md">bullnanzabulldogges@gmail.com</h2></a>
+        <a href="mailto:bullnanzabulldogges@gmail.com"><h3 class="visible-xs visible-sm col-xs-10 col-xs-offset-1">bullnanzabulldogges@gmail.com</h3></a>
     </div>
     <div class="row">
         <h2 class="centeredText"><u>Mailing Address</u></h2>
