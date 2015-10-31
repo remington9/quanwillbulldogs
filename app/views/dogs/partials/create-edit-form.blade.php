@@ -49,6 +49,11 @@
     {{ Form::select('past',[''=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
 </div>
 
+<div class="form-group col-md-6 col-xs-12 @if($errors->has('fun')) has-error @endif">
+    {{ Form::label('fun', 'Fun Dog Pic?') }}
+    {{ Form::select('fun',[''=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
+</div>
+
 <div class="form-group col-md-6 col-xs-12 @if($errors->has('dad')) has-error @endif">
     {{ Form::label('dad', 'Dogs Dad') }}
     {{ Form::select('dad',$dads,null ,['class' => 'form-control']) }}
