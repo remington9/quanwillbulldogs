@@ -14,6 +14,14 @@ hr{
     height:250px;
 }
 
+.fa-mars{
+    color:blue;
+}
+
+.fa-venus{
+    color:#FF00FF;
+}
+
 .well{
     background: #FFE6A7;
 }

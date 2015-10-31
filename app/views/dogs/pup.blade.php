@@ -12,7 +12,8 @@
                     <div class="jumbotron">
                         <div class="well">
                             <h1 class="centeredText canevalee">{{{$key->name}}}  </h1>
-                            <p>Sex: {{{ $key->gender }}} | Born: Oct 01, 2015 | 
+                            <p>Sex: {{{ $key->gender }}} @if($key->gender == 'Male')<i class="fa fa-mars"></i>@else<i class="fa fa-venus"></i>@endif
+                             | Born: Oct 01, 2015 | 
                                 @if($key->sold == '1')<span class="redText">SOLD</span>
                                 @else($key->sold == '0')<span class="greenText">AVAILABLE</span>
                                 @endif
