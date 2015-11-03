@@ -47,7 +47,7 @@
       @endif
         <?php $i=1; ?>
         @foreach($dogs as $key)
-            @if($i < 4)
+            @if($i =< 4)
                 @if($key->past == $past && $past == "1")
                    <div class="col-md-3 col-xs-12 ">
                        <img class="thumbnail img-responsive" src="/img/dogs/{{{ $key->img_url }}}" alt="">
@@ -83,7 +83,7 @@
                            <a href="{{{action('DogsController@edit', $key->id)}}}" class="btn btn-warning btn-block">Edit</a>
                        @endif
                        </div>
-                       <?php $i=2 ?>
+                       <?php $i++ ?>
                    @endif
                 @endif
                 </div>
