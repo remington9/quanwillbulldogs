@@ -67,6 +67,7 @@
                 @endif
                 <?php $i++ ?>
             @else
+                </div>
                 <div class="row">
                 @if($key->past == $past && $past == "1")
                    <div class="col-md-3 col-xs-12 ">
@@ -77,6 +78,7 @@
                    </div>
                    <?php $i=1 ?>
                    @if($key->img_url2 != '')
+                   @if($i < 4)
                        <div class=" col-md-3 col-xs-12">
                            <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url2 }}}" alt="">
                        @if(Auth::id() == $key->user_id)
@@ -84,10 +86,19 @@
                        @endif
                        </div>
                        <?php $i++ ?>
+                    @else
+                    <div class="row">
+                      <div class=" col-md-3 col-xs-12">
+                           <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url2 }}}" alt="">
+                       @if(Auth::id() == $key->user_id)
+                           <a href="{{{action('DogsController@edit', $key->id)}}}" class="btn btn-warning btn-block">Edit</a>
+                       @endif
+                       </div>
+                       <?php $i=1 ?>
+                    </div>
+                    @endif
                    @endif
-                @endif
-                </div>
-                
+                @endif                
             @endif
         @endforeach
     </div>
