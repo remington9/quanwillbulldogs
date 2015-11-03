@@ -24,6 +24,7 @@
                    @endif
                 <?php $i++ ?>
             @else
+                </div>
                 <div class="row">
                    <div class="col-md-3 col-xs-12 ">
                        <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url }}}" alt="">
@@ -56,5 +57,4 @@
                 </div>
             @endif
         @endforeach
-    </div>
 @stop
