@@ -6,7 +6,7 @@
 <div class="row">
         <?php $i=1; ?>
         @foreach($dogs as $key)
-            @if($i =< 4)
+            @if($i <= 4)
                    <div class="col-md-3 col-xs-12 ">
                        <img class="thumbnail img-responsive" src="/img/dogs/{{{ $key->img_url }}}" alt="">
                    @if(Auth::id() == $key->user_id)
@@ -33,7 +33,7 @@
                    </div>
                    <?php $i=1 ?>
                    @if($key->img_url2 != '')
-                    @if($i =< 4)
+                    @if($i <= 4)
                        <div class=" col-md-3 col-xs-12">
                            <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url2 }}}" alt="">
                        @if(Auth::id() == $key->user_id)
