@@ -39,7 +39,7 @@
                            <a href="{{{action('DogsController@edit', $key->id)}}}" class="btn btn-warning btn-block">Edit</a>
                        @endif
                        </div>
-                       <?php $i=2 ?>
+                       <?php $i+2 ?>
                    @endif
                 </div>
                 
