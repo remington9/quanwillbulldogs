@@ -11,12 +11,12 @@
 
 <div class="form-group col-md-6 col-xs-12 @if($errors->has('banner')) has-error @endif">
     {{ Form::label('banner', 'Banner?') }}
-    {{ Form::select('banner',[''=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
+    {{ Form::select('banner',['0'=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
 </div>
 
 <div class="form-group col-md-6 col-xs-12 @if($errors->has('gender')) has-error @endif">
     {{ Form::label('gender', '*Gender') }}
-    {{ Form::select('gender',[''=>'select','male' => 'Male', 'female' => 'Female'],null ,['class' => 'form-control']) }}
+    {{ Form::select('gender',[''=>'select','Male' => 'Male', 'Female' => 'Female'],null ,['class' => 'form-control']) }}
 </div>
 
 <div class="form-group col-md-6 @if($errors->has('img_url')) has-error @endif">
@@ -31,27 +31,27 @@
 
 <div class="form-group col-md-6 col-xs-12 @if($errors->has('retired')) has-error @endif">
     {{ Form::label('retired', 'Retired?') }}
-    {{ Form::select('retired',[''=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
+    {{ Form::select('retired',['0'=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
 </div>
 
 <div class="form-group col-md-6 col-xs-12 @if($errors->has('puppy')) has-error @endif">
     {{ Form::label('puppy', 'Puppy?') }}
-    {{ Form::select('puppy',[''=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
+    {{ Form::select('puppy',['0'=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
 </div>
 
 <div class="form-group col-md-6 col-xs-12 @if($errors->has('sold')) has-error @endif">
     {{ Form::label('sold', 'Sold? (for current puppies)') }}
-    {{ Form::select('sold',[''=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
+    {{ Form::select('sold',['0'=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
 </div>
 
 <div class="form-group col-md-6 col-xs-12 @if($errors->has('past')) has-error @endif">
     {{ Form::label('past', 'Past Puppy?') }}
-    {{ Form::select('past',[''=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
+    {{ Form::select('past',['0'=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
 </div>
 
 <div class="form-group col-md-6 col-xs-12 @if($errors->has('fun')) has-error @endif">
     {{ Form::label('fun', 'Fun Dog Pic?') }}
-    {{ Form::select('fun',[''=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
+    {{ Form::select('fun',['0'=>'select','0' => 'No', '1' => 'Yes'],null ,['class' => 'form-control']) }}
 </div>
 
 <div class="form-group col-md-6 col-xs-12 @if($errors->has('dad')) has-error @endif">

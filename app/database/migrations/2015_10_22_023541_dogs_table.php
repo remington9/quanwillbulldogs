@@ -20,14 +20,14 @@ class DogsTable extends Migration {
 			$table->string('gender',10);
 			$table->string('img_url',100);
 			$table->string('img_url2',100)->nullable();
-			$table->string('banner',1)->default('0');
-			$table->string('retired',1)->default('0');
-			$table->string('puppy',1)->default('0');
-			$table->string('sold',1)->default('0');
-			$table->string('past',1)->default('1');
+			$table->tinyInteger('banner')->default(0)->nullable();
+			$table->tinyInteger('retired')->default(0)->nullable();
+			$table->tinyInteger('puppy')->default(0)->nullable();
+			$table->tinyInteger('sold')->default(0)->nullable();
+			$table->tinyInteger('past')->default(0)->nullable();
 			$table->string('mom',30)->nullable();
 			$table->string('dad',30)->nullable();
-			$table->string('fun',30)->default('0');
+			$table->tinyInteger('fun')->default(0)->nullable();
 			$table->timestamps();
 		});
 	}
