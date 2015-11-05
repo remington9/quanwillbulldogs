@@ -156,12 +156,27 @@ class DogsController extends BaseController {
 
 	public function fun()
 	{
+		
 		$dogs = Dog::where('banner','0')->where('fun','1')->get();
-		if(count($dogs) < 1){
+		$pics=[];
+		foreach($dogs as $dog){
+			if($dog->img_url){
+				$pics[] = $dog->img_url;
+			}
+			if($dog->img_url2){
+				$pics[] = $dog->img_url2;
+			}
+		}
+		$totalPics = count($pics);
+		if(count($pics) < 1){
 			Session::flash('errorMessage', "Something went wrong, no fun dog pictures found!");
 			App::abort(404);
 		}
-		return View::make('dogs.fun')->with('dogs',$dogs);
+		$data=[
+			'pics'=>$pics,
+			'totalPics'=>$totalPics
+		];
+		return View::make('dogs.fun')->with($data);
 	}
 
 	public function puppies($past)
