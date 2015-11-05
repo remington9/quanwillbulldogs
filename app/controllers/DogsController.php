@@ -159,12 +159,15 @@ class DogsController extends BaseController {
 		
 		$dogs = Dog::where('banner','0')->where('fun','1')->get();
 		$pics=[];
+		$dogsId = [];
 		foreach($dogs as $dog){
 			if($dog->img_url){
 				$pics[] = $dog->img_url;
+				$dogsId[] = $dog->id;
 			}
 			if($dog->img_url2){
 				$pics[] = $dog->img_url2;
+				$dogsId[] = $dog->id;
 			}
 		}
 		$totalPics = count($pics);
@@ -174,7 +177,8 @@ class DogsController extends BaseController {
 		}
 		$data=[
 			'pics'=>$pics,
-			'totalPics'=>$totalPics
+			'totalPics'=>$totalPics,
+			'dogsId'=>$dogsId
 		];
 		return View::make('dogs.fun')->with($data);
 	}
