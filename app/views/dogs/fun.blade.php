@@ -13,7 +13,7 @@
         @if(Auth::id())
            <a href="{{{action('DogsController@edit', $dogsId[$i] )}}}" class="btn btn-warning btn-block">Edit</a>
         @endif
-        <? $i++ ?>
+        <?php $i++ ?>
         @if($i%4 == 0 && $i>0)
             </div>
         @endif
