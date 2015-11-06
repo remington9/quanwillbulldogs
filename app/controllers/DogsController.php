@@ -122,14 +122,35 @@ class DogsController extends BaseController {
 	 */
 	public function show($name)
 	{
-		$dog = Dog::where('name',$name)->where('banner', '0')->get();
+		$dogs = Dog::where('name',$name)->where('banner', '0')->get();
+
+		$pics=[];
+		$dogsId = [];
+		foreach($dogs as $dog){
+			if($dog->img_url){
+				$pics[] = $dog->img_url;
+				$dogsId[] = $dog->id;
+			}
+			if($dog->img_url2){
+				$pics[] = $dog->img_url2;
+				$dogsId[] = $dog->id;
+			}
+		}
+		$totalPics = count($pics);
+
+		$data=[
+			'pics'=>$pics,
+			'totalPics'=>$totalPics,
+			'dogsId'=>$dogsId,
+			'dogs'=>$dogs,
+		];
 
 		if(count($dog) < 1){
 			Session::flash('errorMessage', "Something went wrong, no dog with name: $name found!");
 			App::abort(404);
 		}
 		Log::info("dog named $name found");
-		return View::make('dogs.show')->with('dogs',$dog);
+		return View::make('dogs.show')->with($data);
 	}
 
 	public function gender($gender)
@@ -178,7 +199,7 @@ class DogsController extends BaseController {
 		$data=[
 			'pics'=>$pics,
 			'totalPics'=>$totalPics,
-			'dogsId'=>$dogsId
+			'dogsId'=>$dogsId,
 		];
 		return View::make('dogs.fun')->with($data);
 	}
@@ -186,16 +207,40 @@ class DogsController extends BaseController {
 	public function puppies($past)
 	{
 		$noDog = "0";
-		$dog = Dog::where('past', $past)->where('banner','0')->where('puppy','1')->get();
-
-		if(count($dog) < 1){
-			$noDog = "1";
-		}
-		$data = [
-			'dogs' => $dog,
+		$dogs = Dog::where('past', $past)->where('banner','0')->where('puppy','1')->get();
+		if($past == "1"){
+			$pics=[];
+			$dogsId = [];
+			foreach($dogs as $dog){
+				if($dog->img_url){
+					$pics[] = $dog->img_url;
+					$dogsId[] = $dog->id;
+				}
+				if($dog->img_url2){
+					$pics[] = $dog->img_url2;
+					$dogsId[] = $dog->id;
+				}
+			}
+			$totalPics = count($pics);
+			$data = [
+			'dogs' => $dogs,
 			'past' => $past,
 			'noDogs' => $noDog,
-		];
+			'pics'=>$pics,
+			'totalPics'=>$totalPics,
+			'dogsId'=>$dogsId,
+			];
+		}
+		if(count($dogs) < 1){
+			$noDog = "1";
+		}
+		if($past == '0'){
+			$data = [
+				'dogs' => $dogs,
+				'past' => $past,
+				'noDogs' => $noDog,
+			];
+		}
 		return View::make('dogs.pup')->with($data);
 	}
 

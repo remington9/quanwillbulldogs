@@ -41,66 +41,22 @@
             <h1 class="centeredText canevalee">Puppies Coming Soon!</h1>
         </div>
     @endif
-    <div class="row">
       @if($key->past == $past && $past == "1")
         <h1 class="centeredText canevalee">Puppies from Past Litters</h1><hr>
-      @endif
-        <?php $i=1; ?>
-        @foreach($dogs as $key)
-            @if($i <= 4)
-                @if($key->past == $past && $past == "1")
-                   <div class="col-md-3 col-xs-12 ">
-                       <img class="thumbnail img-responsive" src="/img/dogs/{{{ $key->img_url }}}" alt="">
-                   @if(Auth::id() == $key->user_id)
-                       <a href="{{{action('DogsController@edit', $key->id)}}}" class="btn btn-warning btn-block">Edit</a>
-                   @endif
-                   </div>
-                   @if($key->img_url2 != '')
-                       <div class=" col-md-3 col-xs-12">
-                           <img class="img-responsive thumbnail" src="/img/dogs/{{{ $key->img_url2 }}}" alt="">
-                       @if(Auth::id() == $key->user_id)
-                           <a href="{{{action('DogsController@edit', $key->id)}}}" class="btn btn-warning btn-block">Edit</a>
-                       @endif
-                       </div>
-                       <?php $i++ ?>
-                   @endif
-                @endif
-                <?php $i++ ?>
-            @else
-                </div>
+        @for($i=0;$i<$totalPics;)
+            @if($i%4 == 0)
                 <div class="row">
-                @if($key->past == $past && $past == "1")
-                   <div class="col-md-3 col-xs-12 ">
-                       <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url }}}" alt="">
-                   @if(Auth::id() == $key->user_id)
-                       <a href="{{{action('DogsController@edit', $key->id)}}}" class="btn btn-warning btn-block">Edit</a>
-                   @endif
-                   </div>
-                   <?php $i=1 ?>
-                   @if($key->img_url2 != '')
-                   @if($i < 4)
-                       <div class=" col-md-3 col-xs-12">
-                           <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url2 }}}" alt="">
-                       @if(Auth::id() == $key->user_id)
-                           <a href="{{{action('DogsController@edit', $key->id)}}}" class="btn btn-warning btn-block">Edit</a>
-                       @endif
-                       </div>
-                       <?php $i++ ?>
-                    @else
-                  </div>
-                    <div class="row">
-                      <div class=" col-md-3 col-xs-12">
-                           <img class="img-responsive thumbnail " src="/img/dogs/{{{ $key->img_url2 }}}" alt="">
-                       @if(Auth::id() == $key->user_id)
-                           <a href="{{{action('DogsController@edit', $key->id)}}}" class="btn btn-warning btn-block">Edit</a>
-                       @endif
-                       </div>
-                       <?php $i=1 ?>
-                    </div>
-                    @endif
-                   @endif
-                @endif                
+            @endif     
+            <div class=" col-md-3 col-xs-12">
+                <img class="img-responsive thumbnail " src="/img/dogs/{{{ $pics[$i] }}}" alt="">
+                @if(Auth::id())
+                    <a href="{{{action('DogsController@edit', $dogsId[$i] )}}}" class="btn btn-warning btn-block">Edit</a>
+                @endif
+            </div>
+            <?php $i++ ?>
+            @if($i%4 == 0 && $i>0)
+                </div>
             @endif
-        @endforeach
-    </div>
+        @endfor
+      @endif
 @stop
